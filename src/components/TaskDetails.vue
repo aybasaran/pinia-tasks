@@ -8,7 +8,7 @@
       />
       <Heart
         @click="taskStore.toggleFav(task.id)"
-        :class="{ 'fill-red-600 text-red-600': task.isFav }"
+        :class="{ 'is-favorite': task.isFav }"
         class="ml-1.5 size-[1.4em] cursor-pointer fill-stone-400 text-stone-400"
       />
     </div>
@@ -28,3 +28,9 @@ defineProps({
   }
 })
 </script>
+
+<style scoped>
+.is-favorite {
+  @apply fill-red-600 text-red-600;
+}
+</style>

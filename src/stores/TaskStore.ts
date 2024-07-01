@@ -4,12 +4,12 @@ export const useTaskStore = defineStore('taskStore', {
   state: () => ({
     tasks: [
       {
-        id: 1,
+        id: '47f9f86a-f943-41aa-a832-9d30b03009de',
         title: 'Task 1',
         isFav: false
       },
       {
-        id: 2,
+        id: '96d17492-21a5-4e1e-80f9-35c454ec65ff',
         title: 'Task 2',
         isFav: true
       }
@@ -21,13 +21,13 @@ export const useTaskStore = defineStore('taskStore', {
     favCount: (state) => state.tasks.reduce((acc, task) => (task.isFav ? acc + 1 : acc), 0)
   },
   actions: {
-    addTask(task: { id: number; title: string; isFav: boolean }) {
+    addTask(task: { id: string; title: string; isFav: boolean }) {
       this.tasks.push(task)
     },
-    deleteTask(id: number) {
+    deleteTask(id: string) {
       this.tasks = this.tasks.filter((task) => task.id !== id)
     },
-    toggleFav(id: number) {
+    toggleFav(id: string) {
       const task = this.tasks.find((task) => task.id === id)
       if (task) {
         task.isFav = !task.isFav
