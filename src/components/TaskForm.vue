@@ -15,6 +15,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { v4 as uuid } from 'uuid'
 import { useTaskStore } from '@/stores/TaskStore'
 const taskStore = useTaskStore()
 
@@ -23,7 +24,7 @@ const newTask = ref('')
 const handleSubmit = () => {
   if (newTask.value.trim() === '') return
   taskStore.addTask({
-    id: Date.now(),
+    id: uuid(),
     title: newTask.value,
     isFav: false
   })
